@@ -13,29 +13,36 @@
 </div><!-- End Page Title -->
 
 <section class="section">
-    <div class="row">
-        <div class="col-lg-6">
-
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Example Card</h5>
-                    <p>This is an examle page with no contrnt. You can use it as a starter for your custom
-                        pages.</p>
-                </div>
+    <div class="card">
+        <div class="card-body p-3">
+            <a href="/student/create" class="btn btn-primary">+ Student</a>
+            <div class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th>No</th>
+                        <th>Name</th>
+                        <th>NIM</th>
+                        <th>Major</th>
+                        <th>Class</th>
+                        <th>Action</th>
+                    </tr>
+                    @foreach ($students as $student)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $student->name }}</td>
+                        <td>{{ $student->nim }}</td>
+                        <td>{{ $student->major }}</td>
+                        <td>{{ $student->class }}</td>
+                        <td>
+                            <a href="" class="btn btn-warning">Edit</a>
+                            <a href="" class="btn btn-danger">Hapus</a>
+                        </td>
+                    
+                    </tr>
+                    @endforeach
+                
+                </table>
             </div>
-
-        </div>
-
-        <div class="col-lg-6">
-
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Example Card</h5>
-                    <p>This is an examle page with no contrnt. You can use it as a starter for your custom
-                        pages.</p>
-                </div>
-            </div>
-
         </div>
     </div>
 </section>
