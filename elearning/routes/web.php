@@ -22,6 +22,10 @@ Route::get('admin/dashboard', [DashboardController::class, 'index']);
 use App\Http\Controllers\StudentController;
 Route::get('admin/student', [StudentController::class, 'index']);
 
+// Courses Route
+use App\Http\Controllers\CoursesController;
+Route::get('admin/courses', [CoursesController::class, 'index']);
+
 // tambahkan routing baru
 // Route::get('/salam',function(){
 //     return "Assalmualaikum Higa, Selamat Belajar Laravel 11";
