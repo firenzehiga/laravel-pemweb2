@@ -45,6 +45,8 @@
         
                     <div class="mb-4">
                         <button type="submit" class="btn btn-primary">Submit</button>
+                        <a href="/admin/student/" class="btn btn-danger">Kembali</a>
+
                     </div>
                 </form>
 

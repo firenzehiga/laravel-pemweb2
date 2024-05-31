@@ -58,6 +58,7 @@ class StudentController extends Controller
         return view('admin.contents.student.edit', [ 'student' => $student]);
     }
 
+    // method update
     public function update($id, Request $request){
         // Cari data student berdasarkan id
         $student = Student::find($id); 
@@ -81,6 +82,7 @@ class StudentController extends Controller
 
     }
 
+    // method delete
     public function destroy($id){
         $student = Student::find($id); //DELETE FROM student WHERE id=$id;
         $student->delete();

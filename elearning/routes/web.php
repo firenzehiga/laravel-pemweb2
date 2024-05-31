@@ -41,23 +41,27 @@ Route::delete('admin/student/delete/{id}', [StudentController::class, 'destroy']
 // Route menampilkan form Edit
 Route::get('admin/student/edit/{id}', [StudentController::class, 'edit'])->name('student.edit');
 
+
+
 // Courses Route
 use App\Http\Controllers\CoursesController;
 Route::get('admin/courses', [CoursesController::class, 'index']);
 
-// tambahkan routing baru
-// Route::get('/salam',function(){
-//     return "Assalmualaikum Higa, Selamat Belajar Laravel 11";
-// });
+// Route menampilkan form Courses
+Route::get('admin/courses/create', [CoursesController::class, 'create']);
+// Route untuk mengirim data form
+Route::post('admin/courses/create', [CoursesController::class, 'store']);
 
-// Route::get('/profil',function(){
-//     return view('profil');
-// });
+//Route untk menmpilkan edit
+Route::get('admin/courses/edit/{id}', [CoursesController::class, 'edit']);
 
-// Route::get('/about',function(){
-//     return view('about');
-// });
+// Route untuk menyimpan hasil edit / update
+Route::put('admin/courses/update/{id}', [CoursesController::class, 'update']);
 
-// Route::get('/dashboard', [DashboardController::class, 'show']);
+//Route untuk menghapus data
+Route::delete('admin/courses/delete/{id}', [CoursesController::class, 'destroy']);
 
-// Route::get('/dashboard/laporan', [DashboardController::class, 'laporan']);
+// Route::put()
+
+// Route menampilkan form Edit
+Route::get('admin/courses/edit/{id}', [CoursesController::class, 'edit'])->name('courses.edit');
