@@ -5,9 +5,8 @@
     <h1>Student</h1>
     <nav>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
-            <li class="breadcrumb-item">Pages</li>
-            <li class="breadcrumb-item active">Blank</li>
+            <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
+            <li class="breadcrumb-item">Student</li>
         </ol>
     </nav>
 </div><!-- End Page Title -->
@@ -15,7 +14,7 @@
 <section class="section">
     <div class="card">
         <div class="card-body p-3">
-            <a href="/student/create" class="btn btn-primary">+ Student</a>
+            <a href="/admin/student/create" class="btn btn-primary">+ Student</a>
             <div class="table-responsive">
                 <table class="table">
                     <tr>
@@ -33,9 +32,13 @@
                         <td>{{ $student->nim }}</td>
                         <td>{{ $student->major }}</td>
                         <td>{{ $student->class }}</td>
-                        <td>
-                            <a href="" class="btn btn-warning">Edit</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
+                        <td class="d-flex">
+                            <a href="/admin/student/edit/{{ $student->id }}" class="btn btn-warning me-2" >Edit</a>
+                            <form action="/admin/student/delete/{{ $student->id }}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button class="btn btn-danger" type="submit" onclick="return confirm('Apakah anda yakin ingin menghapus?')">Hapus</button>
+                            </form>
                         </td>
                     
                     </tr>
