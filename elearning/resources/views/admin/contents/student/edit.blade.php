@@ -42,7 +42,8 @@
                         <label for="class" class="form-label">Class</label>
                         <input type="text" name="class" id="class" class="form-control" value="{{ $student->class ?? '' }}">
                     </div>
-        
+                    
+                    
                     <div class="mb-4">
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <a href="/admin/student/" class="btn btn-danger">Kembali</a>
