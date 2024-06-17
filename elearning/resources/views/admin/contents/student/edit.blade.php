@@ -46,7 +46,6 @@
                     <div class="mb-2">
                         <label for="course_id" class="form-label">Course</label>
                         <select name="course_id" id="course_id" class="form-select">
-                            <option value="">Choose Course</option>
                             @foreach ($courses as $course)
                             <option value="{{ $course->id }}">{{ $course->name }}</option>
                             @endforeach 
