@@ -21,9 +21,9 @@ Route::middleware('auth')->group(function () {
     // Dashboard Route
 Route::get('admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 // Student Route
-Route::get('admin/student', [StudentController::class, 'index']);
+Route::get('admin/student', [StudentController::class, 'index'])->middleware('auth','admin');
 // Route menampilkan form Student
-Route::get('admin/student/create', [StudentController::class, 'create']);
+Route::get('admin/student/create', [StudentController::class, 'create'])->middleware('auth','admin');
 // Route untuk mengirim data form
 Route::post('admin/student/create', [StudentController::class, 'store']);
 //Route untk menmpilkan edit
@@ -33,22 +33,20 @@ Route::get('admin/student/edit/{id}', [StudentController::class, 'edit']);
 Route::put('admin/student/update/{id}', [StudentController::class, 'update']);
 //Route untuk menghapus data
 Route::delete('admin/student/delete/{id}', [StudentController::class, 'destroy']);
-// Route menampilkan form Edit
-Route::get('admin/student/edit/{id}', [StudentController::class, 'edit'])->name('student.edit');
+
 // Courses Route
 Route::get('admin/courses', [CoursesController::class, 'index']);
 // Route menampilkan form Courses
-Route::get('admin/courses/create', [CoursesController::class, 'create']);
+Route::get('admin/courses/create', [CoursesController::class, 'create'])->middleware('auth','admin');
 // Route untuk mengirim data form
 Route::post('admin/courses/create', [CoursesController::class, 'store']);
 //Route untk menmpilkan edit
-Route::get('admin/courses/edit/{id}', [CoursesController::class, 'edit']);
+Route::get('admin/courses/edit/{id}', [CoursesController::class, 'edit'])->middleware('auth','admin');;
 // Route untuk menyimpan hasil edit / update
 Route::put('admin/courses/update/{id}', [CoursesController::class, 'update']);
 //Route untuk menghapus data
 Route::delete('admin/courses/delete/{id}', [CoursesController::class, 'destroy']);
 // Route menampilkan form Edit
-Route::get('admin/courses/edit/{id}', [CoursesController::class, 'edit'])->name('courses.edit');
 });
 
 require __DIR__.'/auth.php';
@@ -60,4 +58,3 @@ require __DIR__.'/auth.php';
 *3. Put: digunakan untuk mengupdate data
 *4. delete: Digunakan untuk menghapus data
 */
-
